@@ -4,20 +4,20 @@ const expectedLength = Number.parseInt(
 );
 
 inputElement.addEventListener("blur", (event) => {
-  const hasValid = inputElement.classList.contains("valid");
-  const hasInvalid = inputElement.classList.contains("invalid");
   if (event.currentTarget.value.length === expectedLength) {
-    if (!hasValid) {
+    if (inputElement.classList.contains("invalid")) {
+      inputElement.classList.replace("invalid", "valid");
+      return;
+    }
+    if (!inputElement.classList.contains("valid")) {
       inputElement.classList.add("valid");
     }
-    if (hasInvalid) {
-      inputElement.classList.remove("invalid");
-    }
   } else {
-    if (hasValid) {
-      inputElement.classList.remove("valid");
+    if (inputElement.classList.contains("valid")) {
+      inputElement.classList.replace("valid", "invalid");
+      return;
     }
-    if (!hasInvalid) {
+    if (!inputElement.classList.contains("invalid")) {
       inputElement.classList.add("invalid");
     }
   }
