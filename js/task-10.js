@@ -15,10 +15,10 @@ createButton.addEventListener("click", () => {
 destroyButton.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
-  console.log(`${amount} to create`);
   const elementsArea = document.querySelector("#boxes");
+  const already = elementsArea.querySelectorAll("div").length;
   for (let i = 0; i < amount; i++) {
-    const dimension = 30 + i * 10;
+    const dimension = 30 + (i + already) * 10;
     const color = getRandomHexColor();
     const string = `<div style="width:${dimension}px; height:${dimension}px; background-color: ${color}"></div>`;
     elementsArea.insertAdjacentHTML("beforeend", string);
