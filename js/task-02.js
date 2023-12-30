@@ -6,13 +6,26 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
+
 const listIngredients = document.querySelector("#ingredients");
-const listNodes = [];
-for (let i = 0; i < ingredients.length; i++) {
-  listNodes[i] = document.createElement("li");
-  listNodes[i].classList.add("item");
-  listNodes[i].textContent = ingredients[i];
-}
+
+const listNodes = ingredients.map((item) => {
+  const ingredientItem = document.createElement("li");
+  ingredientItem.textContent = item;
+  ingredientItem.classList.add("item");
+
+  return ingredientItem;
+});
+
+listIngredients.append(...listNodes);
+
+// const listIngredients = document.querySelector("#ingredients");
+// const listNodes = [];
+// for (let i = 0; i < ingredients.length; i++) {
+//   listNodes[i] = document.createElement("li");
+//   listNodes[i].classList.add("item");
+//   listNodes[i].textContent = ingredients[i];
+// }
 // console.log(listNodes);
 // const listNodes = ingredients
 //   .map((ingredient) => `<li class="item">${ingredient}</li>`)
@@ -20,4 +33,4 @@ for (let i = 0; i < ingredients.length; i++) {
 // console.log(listNodes);
 // listNodes.forEach((node) => listIngredients.append(node));
 
-listIngredients.append(...listNodes);
+// listIngredients.append(...listNodes);
