@@ -23,6 +23,7 @@ function createBoxes(amount) {
     const string = `<div style="width:${dimension}px; height:${dimension}px; background-color: ${color}"></div>`;
     elementsArea.insertAdjacentHTML("beforeend", string);
   }
+  amountInput.value = "";
 }
 
 function destroyBoxes() {
