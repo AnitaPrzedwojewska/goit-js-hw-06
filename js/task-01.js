@@ -3,8 +3,10 @@ console.log(`Number of categories: ${categoriesItems.children.length}`);
 
 let category = categoriesItems.firstElementChild;
 while (category !== null) {
-  console.log(`Category: ${category.children[0].textContent}\n
-  Elements: ${category.children[1].children.length}`);
+  console.log(
+`Category: ${category.children[0].textContent}
+Elements: ${category.children[1].children.length}`
+  );
   category = category.nextElementSibling;
 }
 
